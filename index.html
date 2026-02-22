@@ -11,12 +11,11 @@
             background: transparent;
         }
 
-        /* Негізгі жолақ */
         .ticker-wrap {
             width: 100%;
-            background: #000000; /* Қара фон */
-            border-top: 4px solid #ffcc00; /* Үстінде сары сызық */
-            border-bottom: 4px solid #ffcc00; /* Астында сары сызық */
+            background: #000000;
+            border-top: 4px solid #ffcc00;
+            border-bottom: 4px solid #ffcc00;
             height: 70px;
             display: flex;
             align-items: center;
@@ -24,38 +23,41 @@
             box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
         }
 
-        /* Мәтін қозғалысы */
+        /* Негізгі контейнер */
         .ticker-move {
-            display: inline-block;
+            display: flex;
             white-space: nowrap;
-            padding-right: 100%;
-            animation: ticker 25s linear infinite;
+            width: fit-content;
+            animation: ticker 30s linear infinite; /* Уақытын өзгертуге болады */
         }
 
-        /* Мәтін стилі */
         .ticker-item {
-            display: inline-block;
+            display: flex;
+            align-items: center;
             color: #ffffff;
             font-family: 'Oswald', sans-serif;
             font-size: 35px;
             text-transform: uppercase;
+        }
+
+        .content {
+            display: inline-block;
             padding: 0 50px;
         }
 
-        /* Ерекшеленетін сөздер */
         .highlight {
             color: #ffcc00;
         }
 
-        /* Нүкте бөлгіш */
         .dot {
             color: #ffcc00;
             margin: 0 20px;
         }
 
+        /* Шексіз айналу анимациясы */
         @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Мәтін жартысына жеткенде басына секіреді */
         }
     </style>
 </head>
@@ -63,12 +65,20 @@
 
     <div class="ticker-wrap">
         <div class="ticker-move">
-            <div class="ticker-item">ҚОШ КЕЛДІҢІЗДЕР! <span class="dot">•</span></div>
-            <div class="ticker-item">ЖҮЛДЕ: <span class="highlight">100 АЛМАЗ</span> 💎 <span class="dot">•</span></div>
-            <div class="ticker-item">INSTAGRAM: <span class="highlight">@DAMIR.AUL</span> <span class="dot">•</span></div>
-            <div class="ticker-item">МАТЧ: <span class="highlight">№1</span> <span class="dot">•</span></div>
-            <div class="ticker-item">ҚАТЫСУ ҮШІН <span class="highlight">ЛАЙК БАСЫП, ЖАЗЫЛ!</span> <span class="dot">•</span></div>
-            <div class="ticker-item">СӘТТІЛІК ТІЛЕЙМІН!</div>
+            <div class="ticker-item">
+                <span class="content">ҚОШ КЕЛДІҢІЗДЕР! <span class="dot">•</span></span>
+                <span class="content">ЖҮЛДЕ: <span class="highlight">100 АЛМАЗ</span> 💎 <span class="dot">•</span></span>
+                <span class="content">INSTAGRAM: <span class="highlight">@DAMIR.AUL</span> <span class="dot">•</span></span>
+                <span class="content">МАТЧ 3000 ЖАЗЫЛЫМДА БАСТАЛАДЫ<span class="highlight">№1</span> <span class="dot">•</span></span>
+                <span class="content">ҚАТЫСУ ҮШІН <span class="highlight">ЛАЙК БАСЫП, ЖАЗЫЛ!</span> <span class="dot">•</span></span>
+            </div>
+            <div class="ticker-item">
+                <span class="content">ҚОШ КЕЛДІҢІЗДЕР! <span class="dot">•</span></span>
+                <span class="content">ЖҮЛДЕ: <span class="highlight">100 АЛМАЗ</span> 💎 <span class="dot">•</span></span>
+                <span class="content">INSTAGRAM: <span class="highlight">@damir_sadvakasov</span> <span class="dot">•</span></span>
+                <span class="content">МАТЧ: <span class="highlight">№1</span> <span class="dot">•</span></span>
+                <span class="content">ҚАТЫСУ ҮШІН <span class="highlight">ЛАЙК БАСЫП, ЖАЗЫЛ!</span> <span class="dot">•</span></span>
+            </div>
         </div>
     </div>
 
