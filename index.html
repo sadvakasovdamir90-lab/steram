@@ -2,162 +2,73 @@
 <html lang="kk">
 <head>
     <meta charset="UTF-8">
-    <title>QAZ ROYALE TOURNAMENT OVERLAY</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
     <style>
         body, html {
-            margin: 0; padding: 0;
-            width: 1080px; height: 1920px;
+            margin: 0;
+            padding: 0;
             overflow: hidden;
             background: transparent;
-            font-family: 'Oswald', sans-serif;
-            color: white;
         }
 
-        /* 1. СЫРТҚЫ РАМКА */
-        .main-frame {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: 6px solid #ffcc00;
-            box-sizing: border-box;
-            box-shadow: inset 0 0 50px rgba(255, 204, 0, 0.3);
-            z-index: 10;
-        }
-
-        /* 2. ЖОҒАРҒЫ ПАНЕЛЬ (ТУРНИР АТЫ) */
-        .header {
-            position: absolute;
-            top: 60px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .title-box {
-            display: inline-block;
-            background: #000;
-            border: 4px solid #ffcc00;
-            padding: 10px 50px;
-            transform: skew(-10deg);
-        }
-
-        .title-text {
-            font-size: 55px;
-            text-transform: uppercase;
-            color: #ffcc00;
-            margin: 0;
-            letter-spacing: 5px;
-        }
-
-        /* 3. ЖҮЛДЕ (100 АЛМАЗ) */
-        .prize-box {
-            position: absolute;
-            top: 200px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffcc00; /* Қызылдан сарыға ауыстырдым, стильге сай */
-            color: #000;
-            padding: 5px 40px;
-            font-size: 32px;
-            font-weight: bold;
-            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-        }
-
-        /* 4. ТІКЕЛЕЙ ЭФИР МӘТІНІ (Қызыл жолақсыз) */
-        .live-tag {
-            position: absolute;
-            top: 300px;
-            right: 50px;
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            text-shadow: 2px 2px 10px #ff0000;
-            animation: blink 1.5s infinite alternate;
-        }
-
-        /* 5. ТӨМЕНГІ АҚПАРАТТЫҚ ПАНЕЛЬ */
-        .footer {
-            position: absolute;
-            bottom: 100px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .match-info {
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #ffcc00;
-            padding: 20px 60px;
-            font-size: 35px;
-            border-radius: 10px;
-            display: flex;
-            gap: 50px;
-        }
-
-        .highlight { color: #ffcc00; }
-
-        /* 6. ЖҮГІРТПЕ ЖОЛ */
+        /* Негізгі жолақ */
         .ticker-wrap {
             width: 100%;
-            background: rgba(255, 204, 0, 0.9);
-            color: black;
-            padding: 10px 0;
-            font-size: 24px;
-            font-weight: bold;
+            background: #000000; /* Қара фон */
+            border-top: 4px solid #ffcc00; /* Үстінде сары сызық */
+            border-bottom: 4px solid #ffcc00; /* Астында сары сызық */
+            height: 70px;
+            display: flex;
+            align-items: center;
             overflow: hidden;
-            white-space: nowrap;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
         }
 
+        /* Мәтін қозғалысы */
         .ticker-move {
             display: inline-block;
-            animation: ticker 15s linear infinite;
+            white-space: nowrap;
+            padding-right: 100%;
+            animation: ticker 25s linear infinite;
         }
 
-        @keyframes blink {
-            from { opacity: 1; } to { opacity: 0.3; }
+        /* Мәтін стилі */
+        .ticker-item {
+            display: inline-block;
+            color: #ffffff;
+            font-family: 'Oswald', sans-serif;
+            font-size: 35px;
+            text-transform: uppercase;
+            padding: 0 50px;
+        }
+
+        /* Ерекшеленетін сөздер */
+        .highlight {
+            color: #ffcc00;
+        }
+
+        /* Нүкте бөлгіш */
+        .dot {
+            color: #ffcc00;
+            margin: 0 20px;
         }
 
         @keyframes ticker {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        .particles {
-            position: absolute;
-            width: 100%; height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/stardust.png');
-            opacity: 0.2;
-            z-index: 1;
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="particles"></div>
-    <div class="main-frame"></div>
-
-    <div class="header">
-        <div class="title-box">
-            <h1 class="title-text">ТУРНИР</h1>
-        </div>
-    </div>
-
-    <div class="prize-box">ЖҮЛДЕ: 100 АЛМАЗ 💎</div>
-
-    <div class="live-tag">● ТІКЕЛЕЙ ЭФИР</div>
-
-    <div class="footer">
-        <div class="match-info">
-            <span>КАРТА: <span class="highlight">БЕРМУДА</span></span>
-            <span>МАТЧ: <span class="highlight">№1</span></span>
-        </div>
-        
-        <div class="ticker-wrap">
-            <div class="ticker-move">
-                ЖАЗЫЛА КЕТІҢІЗДЕР! • INSTAGRAM: @damir_sadvaksov • ТУРНИРГЕ ҚАТЫСУ ҮШІН ТІРКЕЛ ЖӘНЕ ЛАЙК БАС! • СӘТТІЛІК!
-            </div>
+    <div class="ticker-wrap">
+        <div class="ticker-move">
+            <div class="ticker-item">ҚОШ КЕЛДІҢІЗДЕР! <span class="dot">•</span></div>
+            <div class="ticker-item">ЖҮЛДЕ: <span class="highlight">100 АЛМАЗ</span> 💎 <span class="dot">•</span></div>
+            <div class="ticker-item">INSTAGRAM: <span class="highlight">@DAMIR.AUL</span> <span class="dot">•</span></div>
+            <div class="ticker-item">МАТЧ: <span class="highlight">№1</span> <span class="dot">•</span></div>
+            <div class="ticker-item">ҚАТЫСУ ҮШІН <span class="highlight">ЛАЙК БАСЫП, ЖАЗЫЛ!</span> <span class="dot">•</span></div>
+            <div class="ticker-item">СӘТТІЛІК ТІЛЕЙМІН!</div>
         </div>
     </div>
 
