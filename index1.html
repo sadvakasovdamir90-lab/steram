@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <style>
+        /* МАҢЫЗДЫ: БАРЛЫҚ ФОНДЫ МӨЛДІР ЖАСАУ */
+        body, html {
+            margin: 0; 
+            padding: 0;
+            width: 1080px; 
+            height: 1920px;
+            overflow: hidden;
+            background: transparent !important; /* МӨЛДІР ФОН */
+            font-family: 'Oswald', sans-serif;
+            color: white;
+        }
+
+        /* Орталық контейнер */
+        .intro-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 950px; /* Сәл үлкейттім */
+            text-align: center;
+        }
+
+        /* ТУРНИР АТЫ */
+        .tourney-badge {
+            background: #ffcc00;
+            color: black;
+            font-size: 70px; /* Мәтін үлкенірек */
+            padding: 15px 70px;
+            display: inline-block;
+            clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+            margin-bottom: 30px;
+            font-weight: 900;
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.5);
+        }
+
+        /* ЖҮЛДЕ БЛОГЫ */
+        .prize-glow {
+            font-size: 100px; /* 100 алмаз жазуын үлкейттім */
+            color: #fff;
+            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+            margin: 40px 0;
+            animation: pulse 1.2s infinite alternate;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* АҚПАРАТТЫҚ КАРТАЛАР */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 60px;
+        }
+
+        .info-item {
+            background: rgba(0, 0, 0, 0.85); /* Мәтін оқылуы үшін сәл қараңғылау */
+            border: 3px solid #ffcc00;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .info-label { color: #ffcc00; font-size: 28px; display: block; margin-bottom: 5px; }
+        .info-value { font-size: 45px; text-transform: uppercase; font-weight: bold; }
+
+        /* ҚАТЫСУШЫЛАРҒА СӘТТІЛІК */
+        .gl-hf {
+            margin-top: 120px;
+            font-size: 55px;
+            letter-spacing: 12px;
+            border-top: 3px solid white;
+            border-bottom: 3px solid white;
+            display: inline-block;
+            padding: 15px 60px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); filter: brightness(1); }
+            to { transform: scale(1.1); filter: brightness(1.3); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="intro-container">
+        <div class="tourney-badge">ТУРНИР</div>
+        
+        <div style="font-size: 35px; letter-spacing: 5px; font-weight: bold;">БҮГІНГІ БАСТЫ ЖҮЛДЕ:</div>
+        
+        <div class="prize-glow">100 АЛМАЗ 💎</div>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="info-label">КАРТА:</span>
+                <span class="info-value">БЕРМУДА</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">РЕЖИМ:</span>
+                <span class="info-value">SOLO / СОЛО </span>
+            </div>
+        </div>
+
+        <div class="gl-hf">ІСКЕ СӘТ!</div>
+    </div>
+
+</body>
+</html>
